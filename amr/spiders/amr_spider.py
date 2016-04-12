@@ -9,7 +9,6 @@ class Amrpider(scrapy.Spider):
 # to    : 4391332
     def parse(self, response):
         item = AmrItem()
-        item['english'] = response.css("#keywordContainer .keyword::text").extract()
-        print response.css(".definitionListEntry::text")[0].extract()
+        item['english'] = response.css("#keywordContainer .keyword::text")[0].extract()
         item['arabic'] = response.css(".definitionListEntry::text")[0].extract()
         yield item
